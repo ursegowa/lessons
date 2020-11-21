@@ -14,11 +14,20 @@ namespace Lessons
             var input = Console.ReadLine();
             var number = 0;
             Int32.TryParse(input, out number);
-            Console.WriteLine(number);
-            var hundreds = number / 100;
-            var decades = (number / 10) % 10;
-            var units = number % 10;
-            Console.WriteLine("{0}{1}{2}", units, decades, hundreds);
+
+            if (number > 99 && number < 1000)
+            {
+                Console.WriteLine(number);
+                var hundreds = number / 100;
+                var decades = (number / 10) % 10;
+                var units = number % 10;
+                Console.WriteLine("{0}{1}{2}", units, decades, hundreds);
+            }
+            else
+            {
+                Console.WriteLine("Введёное число не соответствует условиям!");
+            }
+            
             Console.ReadKey();
         }
     }
