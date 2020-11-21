@@ -14,7 +14,6 @@ namespace Lessons
             var name = Console.ReadLine();
             Console.WriteLine("Привет, " + name + "!");
             Console.ReadKey();
-            Console.WriteLine("Пока, " + name + "!");
         }
     }
 }
