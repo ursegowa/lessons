@@ -10,18 +10,24 @@ namespace Lessons
     {
         static void Main()
         {
-            Console.WriteLine("Введи трёхзначное число: ");
+            Console.WriteLine("Введи номер билета: ");
             var input = Console.ReadLine();
             var number = 0;
             Int32.TryParse(input, out number);
 
-            if (number > 99 && number < 1000)
+            if (number > 99999 && number < 1000000)
             {
                 Console.WriteLine(number);
-                var hundreds = number / 100;
-                var decades = (number / 10) % 10;
-                var units = number % 10;
-                Console.WriteLine("{0}{1}{2}", units, decades, hundreds);
+                var partOneNumber = number / 1000;
+                var partTwoNumber = number % 1000;
+                if (GetSumModuls(partOneNumber) == GetSumModuls(partTwoNumber))
+                {
+                    Console.WriteLine("Билетик счастливый!");
+                }
+                else
+                {
+                    Console.WriteLine("Билетик обычный.");
+                }
             }
             else
             {
@@ -29,6 +35,15 @@ namespace Lessons
             }
             
             Console.ReadKey();
+        }
+
+        static int GetSumModuls(int number)
+        {
+            var hundreds = number / 100;
+            var decades = (number / 10) % 10;
+            var units = number % 10;
+
+            return hundreds + decades + units;
         }
     }
 }
